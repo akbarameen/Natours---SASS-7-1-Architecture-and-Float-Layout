@@ -7,6 +7,7 @@
     background-size: cover;
     background-position: top;
     /* This property will avoid croping the image from the top when resizing the screen */
+    -wibkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
     /* I have made this myself but there is a cool tool called clippy used for making complex shapes */
     position: relative;
