@@ -71,9 +71,11 @@
             //Method - 2
             background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
         }
+
         &--2 {
             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
         }
+
         &--3 {
             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
         }
@@ -106,11 +108,13 @@
                     rgba($color-secondary-dark, .85),
                     rgba($color-secondary-light, .85));
         }
+
         &--2 {
             background-image: linear-gradient(to right bottom,
                     rgba($color-primary-dark, .85),
                     rgba($color-primary-light, .85));
         }
+
         &--3 {
             background-image: linear-gradient(to right bottom,
                     rgba($color-tertiary-dark, .85),
@@ -145,7 +149,7 @@
 
     &__cta {
         @include absCenter;
-        
+
         text-align: center;
         width: 75%;
 
@@ -167,5 +171,53 @@
     &__price-value {
         font-size: 6rem;
         font-weight: 100;
+    }
+
+
+    // redesigned card for small screens
+    @include respond(tab-port) {
+        height: auto;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            }
+
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        // BACK SIDE STYLING
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+        }
+
+        &__details {
+            padding: 1rem 3rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+
+        &__price-value {
+            font-size: 4rem;
+        }
     }
 }
