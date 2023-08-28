@@ -1,10 +1,8 @@
-
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 1.7;
     color: $color-grey;
-    padding: 3rem;
 }
 
 
@@ -12,29 +10,39 @@ body {
     color: $color-white;
     text-transform: uppercase;
 
-    &--main{
+    &--main {
         display: block;
         font-size: 6rem;
         font-weight: 400;
         letter-spacing: 3.5rem;
-    
         animation: moveInLeft 1s ease-out;
-    
+
+        @include respond(phone) {
+            font-size: 5rem;
+            letter-spacing: 1rem;
+        }
+
     }
+
     &--sub {
         display: block;
         font-size: 2rem;
         font-weight: 700;
         letter-spacing: 1.7rem;
-    
+
         animation: moveInRight 1s ease-out;
         /* should read animation properties on MDN website CSS Animation */
-    
+
         margin-bottom: 6rem;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-weight: 500;
+        }
     }
 }
 
-.heading-secondary{
+.heading-secondary {
     font-size: 3.5rem;
     text-transform: uppercase;
     font-weight: 700;
@@ -46,23 +54,31 @@ body {
     letter-spacing: 0.2rem;
     transition: all 0.2s;
 
-    &:hover{
+    &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);
         text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
 
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
+
 }
 
-.heading-tertiary{
+.heading-tertiary {
     font-size: $default-font-size;
     text-transform: uppercase;
     font-weight: 700;
 }
 
-.paragraph{
+.paragraph {
     font-size: $default-font-size;
 
-    &:not(:last-child){
+    &:not(:last-child) {
         margin-bottom: 3rem;
 
     }

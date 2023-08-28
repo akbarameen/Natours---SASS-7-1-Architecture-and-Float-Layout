@@ -1,5 +1,5 @@
 @mixin clearfix {
-    &::after{
+    &::after {
         content: "";
         display: table;
         clear: both;
@@ -7,9 +7,74 @@
 }
 
 @mixin absCenter {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
+
+// Media Query Manager
+/* 
+0-600px - mobile screen
+600-900px - tablet screen
+900-1200px - desktop screen
+1200-1800px - where our default styles are applied
+1800 + - fullhd screen (Bigger screen)
+*/
+// normal way
+@mixin respond-mobile {
+    @media (max-width:600px) {
+        @content
+    }
+
+    ;
+}
+
+
+/* $breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- desktop (default)
+- big-desktop
+
+ORDER: base + typography > general layout + grid  >  page layout > components
+
+- For some reasons rem doesn't work in media queryies so we have to use em
+
+1 em = 16px 
+*/
+// professional way 
+@mixin respond($breakpont) {
+    @if ($breakpont==phone) {
+          // 600/16 = 37.5em
+        @media (max-width:37.5em) {
+            @content
+        }; 
+    }
+
+    @if ($breakpont==tab-port) {
+        // 900/16 = 56.25em
+        @media (max-width:56.25em) {
+            @content
+        };
+    }
+
+    @if ($breakpont==tab-land) {
+        // 1200/16 = 75em
+        @media (max-width:75em) {
+            @content
+        };
+    }
+
+    @if ($breakpont==big-desktop) {
+          //  1800 / 16 = 112.5em
+        @media (min-width:112.5em) {
+            @content
+        };
+    }
+}
+
+
+// 
