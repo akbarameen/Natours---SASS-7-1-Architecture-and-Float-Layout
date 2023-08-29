@@ -16,11 +16,12 @@
         text-align: center;
         cursor: pointer;
 
-        @include respond(tab-port){
+        @include respond(tab-port) {
             top: 4rem;
             right: 4rem;
         }
-        @include respond(phone){
+
+        @include respond(phone) {
             top: 3rem;
             right: 3rem;
         }
@@ -38,11 +39,12 @@
         transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); // from website call easings.net
 
         // transform: scale(100); for design checking purspose 
-        @include respond(tab-port){
+        @include respond(tab-port) {
             top: 4.5rem;
             right: 4.5rem;
         }
-        @include respond(phone){
+
+        @include respond(phone) {
             top: 3.5rem;
             right: 3.5rem;
         }
@@ -67,9 +69,16 @@
         text-align: center;
         text-transform: uppercase;
 
-        // display: inline-block;
-        // width: 30%;
+        display: inline-block;
+        width: 40%;
 
+        @include respond(tab-port) {
+            width: 50%;
+        }
+
+        @include respond(phone) {
+            width: 85%;
+        }
 
     }
 
@@ -97,6 +106,8 @@
                 display: inline-block;
                 margin-right: 1.5rem;
             }
+
+
 
 
             &:hover,
@@ -157,20 +168,22 @@
     &__button:hover &__icon::before {
         top: -1rem;
     }
+
     &__button:hover &__icon::after {
         top: 1rem;
     }
 
 
-    &__checkbox:checked + &__button &__icon{
+    &__checkbox:checked+&__button &__icon {
         background: transparent; // for hiding the middle line
     }
-    
-    &__checkbox:checked + &__button &__icon:before{
+
+    &__checkbox:checked+&__button &__icon:before {
         top: 0;
         transform: rotate(135deg);
     }
-    &__checkbox:checked + &__button &__icon:after{
+
+    &__checkbox:checked+&__button &__icon:after {
         top: 0;
         transform: rotate(-135deg);
     }

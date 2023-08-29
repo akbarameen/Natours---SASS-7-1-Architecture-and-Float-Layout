@@ -584,7 +584,6 @@ body {
     @media (max-width: 37.5em) {
       .popup__text {
         column-count: 1;
-        row-count: 2;
         column-gap: 0;
         column-rule: none; } }
   .popup:target {
@@ -844,7 +843,15 @@ body {
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  display: inline-block;
+  width: 40%; }
+  @media (max-width: 56.25em) {
+    .navigation__list {
+      width: 50%; } }
+  @media (max-width: 37.5em) {
+    .navigation__list {
+      width: 85%; } }
 
 .navigation__item {
   margin: 1rem; }
