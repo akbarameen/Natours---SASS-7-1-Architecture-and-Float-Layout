@@ -1,19 +1,27 @@
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(to right,
             rgba($color-primary-light, 0.8),
             rgba($color-primary-dark, 0.8)),
         url(../img/hero-small.jpg);
     background-size: cover;
-    background-position: top;
     /* This property will avoid croping the image from the top when resizing the screen */
-    -wibkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
-    /* I have made this myself but there is a cool tool called clippy used for making complex shapes */
+    background-position: top;
     position: relative;
+
+    // fireforx doesnot support clip path property the following properties will only apply to the browsers that support it
+    @supports ((clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0))) {
+        /* I have made this myself but there is a cool tool called clippy used for making complex shapes */
+        -wibkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+        height: 95vh;
+    }
 
     // responsive images for different resolution and density (37.53m = 600px and 125em = 2000px)
     @media (min-resolution:192dpi) and (min-width: 37.7em),
+    // this is for firefox browser support 
+    (-webkit-min-device-pixel-ratio:2) and (min-width: 37.5em),
+
     (min-width: 125em) {
         background-image: linear-gradient(to right,
                 rgba($color-primary-light, 0.8),
